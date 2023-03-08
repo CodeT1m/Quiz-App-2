@@ -7,7 +7,5 @@ A Flutter Quiz App with GetX state management.
 
 https://user-images.githubusercontent.com/40980295/223684070-b6f22fc3-9a37-4a29-a506-42d4f6248881.mp4
 
-
-https://user-images.githubusercontent.com/40980295/216741447-3c0f6b0f-d777-4014-ac84-2e1ea09ca652.mp4
 - [Credits: Quiz App - Flutter Complete App - Speed Code](https://youtu.be/Nhy0VWAMsFU)
 
