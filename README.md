@@ -1,16 +1,10 @@
-# quiz_app2
+# quiz_app
 
-A new Flutter project.
+A Flutter Quiz App with GetX state management.
 
-## Getting Started
+![ppt flow](https://user-images.githubusercontent.com/40980295/223683989-8e6d294d-4f8e-4d27-b767-5c3cc3ff277a.png)
 
-This project is a starting point for a Flutter application.
+https://user-images.githubusercontent.com/40980295/223684070-b6f22fc3-9a37-4a29-a506-42d4f6248881.mp4
 
-A few resources to get you started if this is your first Flutter project:
+- [Credits: Quiz App - Flutter Complete App - Speed Code](https://youtu.be/Nhy0VWAMsFU)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
