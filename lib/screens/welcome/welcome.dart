@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:quiz_app2/constants.dart';
 import 'package:quiz_app2/screens/quiz/quiz_screen.dart';
 
@@ -36,10 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const QuizScreen()));
-                  },
+                  onTap: () => Get.to(const QuizScreen()),
                   child: Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(kDefaultPadding * 0.75),

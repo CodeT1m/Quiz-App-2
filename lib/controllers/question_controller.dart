@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:quiz_app2/constants.dart';
 import 'package:quiz_app2/models/Questions.dart';
+import 'package:quiz_app2/screens/score/score.dart';
 
 class QuestionController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -88,7 +89,11 @@ class QuestionController extends GetxController
 
       // once timer finshes, go to next question
       _animationController.forward().whenComplete(nextQuestion);
+    }else{
+      Get.to(const ScoreScreen());
     }
+
+    
   }
 
   void updateTheQnNum(int index){
