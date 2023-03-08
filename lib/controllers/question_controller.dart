@@ -21,7 +21,22 @@ class QuestionController extends GetxController
           ))
       .toList();
 
-      List<Question> get questions => this._questions;
+  List<Question> get questions => this._questions;
+
+  bool _isAnswered = false;
+  bool get isAnswered => this._isAnswered;
+
+  late int _correctAns;
+  int get correctAns => this._correctAns;
+
+  late int _selectedAns;
+  int get selectedAns => this._selectedAns;
+
+  RxInt _questionNumber = 1.obs;
+  RxInt get questionNumber => this._questionNumber;
+
+  late int _numOfCorrectAns = 0;
+  int get numOfCorrectAns => this._numOfCorrectAns;
 
   @override
   void onInit() {
@@ -33,7 +48,50 @@ class QuestionController extends GetxController
       ..addListener(() {
         update();
       });
-    _animationController.forward();
+    _animationController.forward().whenComplete(nextQuestion);
+    _pageController = PageController();
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    _animationController.dispose();
+    _pageController.dispose(); 
+  }
+
+  void checkAns(Question question, int selectedIndex) {
+    _isAnswered = true;
+    _correctAns = question.answer;
+    _selectedAns = selectedIndex;
+
+    if (_correctAns == selectedIndex) _numOfCorrectAns++;
+
+    _animationController.stop();
+    update();
+
+    // once user selects an answer after 3secs, it will go the next qn
+    Future.delayed(const Duration(seconds: 3), () {
+      nextQuestion();
+    });
+  }
+
+  void nextQuestion() {
+    if (_questionNumber.value != questions.length) {
+      _isAnswered = false;
+      _pageController.nextPage(
+          duration: const Duration(milliseconds: 250), curve: Curves.ease);
+
+      // reset the counter
+      _animationController.reset();
+
+      // once timer finshes, go to next question
+      _animationController.forward().whenComplete(nextQuestion);
+    }
+  }
+
+  void updateTheQnNum(int index){
+    _questionNumber.value = index + 1;
   }
 }
